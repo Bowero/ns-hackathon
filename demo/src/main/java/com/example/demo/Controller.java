@@ -17,7 +17,7 @@ public class Controller {
     String original = null;
 
     @RequestMapping(value = "/game", method = RequestMethod.POST, produces = "application/json")
-    public Word greeting(@RequestBody WordChange wordChange) {
+    public Word greeting(@RequestBody WordChangeJava wordChange) {
         if (original == null) {
             original = Scrabble.generateWord();
             currentWord = Scrabble.scramble(new Random(),original);
@@ -29,10 +29,13 @@ public class Controller {
             percentage = 100;
             original = null;
         }
-        return new Word(currentWord,percentage);
+        Word wordToReturn = new Word();
+        wordToReturn.succesPercentage = percentage;
+        wordToReturn.word = currentWord;
+        return wordToReturn;
     }
 
-    public String swap(String str, WordChange wordChange) {
+    public String swap(String str, WordChangeJava wordChange) {
         StringBuilder sb = new StringBuilder(str);
         char l = sb.charAt(wordChange.getFirstLetter()), r = sb.charAt(wordChange.getLastLetter());
         sb.setCharAt(wordChange.getFirstLetter(), r);
