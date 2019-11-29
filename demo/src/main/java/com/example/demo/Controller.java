@@ -14,7 +14,7 @@ public class Controller {
     String original = null;
 
     @RequestMapping(value = "/game", method = RequestMethod.POST, produces = "application/json")
-    @CrossOrigin(origins = "*.*")
+    @CrossOrigin(origins = "*")
     public Word greeting(@RequestBody WordChangeJava wordChange) {
         if (original == null) {
             original = Scrabble.generateWord();
