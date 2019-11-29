@@ -27,6 +27,7 @@ public class App {
                 try {
                     String json = mapper.writeValueAsString(wordObject);
                     System.out.println(json);
+                    System.out.println(Scrabble.percentage(newWord, word) + "%");
                 } catch (Exception e) {
                     System.err.println(e);
                 }

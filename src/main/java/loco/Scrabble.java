@@ -41,4 +41,16 @@ public class Scrabble {
 
     return new String(a);
   }
+
+  public static int percentage(String inputString, String originalWord) {
+    int perc = 0;
+    
+    for (int i = 0; i < inputString.length(); i++) {
+      char c = inputString.charAt(i);
+      if (c == originalWord.charAt(i)) {
+        perc += Math.round(100 / inputString.length());
+      }
+    }
+    return perc;
+  }
 }
