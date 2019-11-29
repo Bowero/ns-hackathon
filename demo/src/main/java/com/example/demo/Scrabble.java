@@ -19,7 +19,7 @@ public class Scrabble {
       System.err.println(e);
     }
     Collections.shuffle(wordList);
-    return "kaas";//wordList.get(0).toLowerCase();
+    return wordList.get(0).toLowerCase();
   }
 
   public static String scramble(Random random, String inputString) {
